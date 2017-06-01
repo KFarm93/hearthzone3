@@ -10,7 +10,7 @@ export function fetchDeets(cardId) {
   return function(dispatch) {
     $.ajax({
       type: "GET",
-      url: "http://localhost:4000/cardDetails/",
+      url: `${BASEURL}/cardDetails/`,
       headers: {
         id: cardId
       },
@@ -59,7 +59,7 @@ export function addToDeck(event, details, deck) {
   return function(dispatch) {
     $.ajax({
       type: "POST",
-      url: "http://localhost:4000/addToDeck/",
+      url: `${BASEURL}/addToDeck/`,
       data: JSON.stringify(data),
       contentType: "application/json"
     })
