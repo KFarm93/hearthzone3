@@ -1,6 +1,11 @@
 import React from 'react';
 import $ from 'jquery';
 
+let BASEURL = 'http://localhost:4000';
+if (window.location.hostname !== 'localhost') {
+  BASEURL = '';
+}
+
 export function showNewDeck() {
   return {
     type: 'showNewDeck'
@@ -20,7 +25,7 @@ export function submitNewDeck(event) {
   return function(dispatch) {
     $.ajax({
       type: "POST",
-      url: "http://localhost:4000/createDeck",
+      url: `${BASEURL}/createDeck`,
       data: JSON.stringify(data),
       contentType: "application/json"
     })
@@ -44,7 +49,7 @@ export function fetchDecks(user_id) {
   return function(dispatch) {
     $.ajax({
       type: "GET",
-      url: "http://localhost:4000/fetchDecks",
+      url: `${BASEURL}/fetchDecks`,
       headers: {
         userId: user_id
       },
@@ -71,7 +76,7 @@ export function findCards(deck_id) {
   return function(dispatch) {
     $.ajax({
       type: "GET",
-      url: "http://localhost:4000/fetchCards",
+      url: `${BASEURL}/fetchCards`,
       headers: {
         deckId: deck_id
       },
@@ -99,7 +104,7 @@ export function changeDeck(event, user_id) {
   return function(dispatch) {
     $.ajax({
       type: "GET",
-      url: "http://localhost:4000/matchDeck",
+      url: `${BASEURL}/matchDeck`,
       headers: {
         deck_name: deck_name,
         user_id: user_id
@@ -129,7 +134,7 @@ export function initialDeck(user_id) {
   return function(dispatch) {
     $.ajax({
       type: "GET",
-      url: "http://localhost:4000/fetchDecks",
+      url: `${BASEURL}/fetchDecks`,
       headers: {
         userId: user_id
       },

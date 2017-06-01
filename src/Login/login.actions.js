@@ -1,5 +1,10 @@
 import $ from 'jquery';
 
+let BASEURL = 'http://localhost:4000';
+if (window.location.hostname !== 'localhost') {
+  BASEURL = '';
+}
+
 export function submitLogin(event) {
   event.preventDefault();
   let u = event.target.username.value;
@@ -11,7 +16,7 @@ export function submitLogin(event) {
   return function(dispatch) {
     $.ajax({
       type: "POST",
-      url: "http://localhost:4000/login",
+      url: `${BASEURL}/login`,
       data: JSON.stringify(data),
       contentType: "application/json"
     })

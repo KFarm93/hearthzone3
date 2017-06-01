@@ -1,6 +1,11 @@
 import { Router, Route, Link, IndexLink, IndexRoute, hashHistory } from 'react-router';
 import $ from 'jquery';
 
+let BASEURL = 'http://localhost:4000';
+if (window.location.hostname !== 'localhost') {
+  BASEURL = '';
+}
+
 export function search(event) {
   event.preventDefault();
   let searchTerm = event.target.term.value;
@@ -8,7 +13,7 @@ export function search(event) {
   return function(dispatch) {
     $.ajax({
       type: "GET",
-      url: "http://localhost:4000/search",
+      url: `${BASEURL}/search`,
       headers: {
         term: searchTerm
       }

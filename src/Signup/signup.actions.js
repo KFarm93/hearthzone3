@@ -1,6 +1,11 @@
 import React from 'react';
 import $ from 'jquery';
 
+let BASEURL = 'http://localhost:4000';
+if (window.location.hostname !== 'localhost') {
+  BASEURL = '';
+}
+
 export function submitSignup(form) {
   form.preventDefault();
   let username = form.target.username.value;
@@ -16,7 +21,7 @@ export function submitSignup(form) {
     return function(dispatch) {
       $.ajax({
         type: "POST",
-        url: "http://localhost:4000/signup",
+        url: `${BASEURL}/signup`,
         data: JSON.stringify(data),
         contentType: "application/json"
       })

@@ -1,11 +1,16 @@
 import React from 'react';
 import $ from 'jquery';
 
+let BASEURL = 'http://localhost:4000';
+if (window.location.hostname !== 'localhost') {
+  BASEURL = '';
+}
+
 export function search(term) {
   return function(dispatch) {
     $.ajax({
       type: "GET",
-      url: "http://localhost:4000/search",
+      url: `${BASEURL}/search`,
       headers: {
         term: term
       }

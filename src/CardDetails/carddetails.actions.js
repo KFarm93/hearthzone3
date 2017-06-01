@@ -1,6 +1,11 @@
 import React from 'react';
 import $ from 'jquery';
 
+let BASEURL = 'http://localhost:4000';
+if (window.location.hostname !== 'localhost') {
+  BASEURL = '';
+}
+
 export function fetchDeets(cardId) {
   return function(dispatch) {
     $.ajax({

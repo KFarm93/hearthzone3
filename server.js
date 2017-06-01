@@ -7,9 +7,8 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const uuid = require('uuid');
 const cors = require('cors');
-const db = pgp({
-  database: 'hearthzone'
-});
+const config = require('./config');
+const db = pgp(config);
 const unirest = require('unirest');
 const API_KEY = 'j1p2aYOGhrmshKNdsy6zUADm0IORp1RpoQZjsnEWbgWpbiYahJ';
 
