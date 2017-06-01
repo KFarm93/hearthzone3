@@ -1,0 +1,508 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: url("../public/images/hearth_wp2.jpg");
+  background-size: cover;
+}
+
+#bannerDiv {
+  float: left;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: darkgrey;
+  z-index: 0;
+  border-bottom: 2px solid black;
+}
+
+#header {
+  font-size: 4.2em;
+  margin-top: 15px;
+  margin-left: 30px;
+  font-family: 'Amita', cursive;
+  color: black;
+}
+
+#noShow {
+  display: none;
+}
+
+.message {
+  margin-left: 5%;
+}
+
+.whiteText {
+  color: white;
+  text-shadow: 3px 3px black;
+  font-family: Arial;
+}
+
+.blackText {
+  font-family: Arial;
+  color: black;
+}
+
+.bigger {
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+
+#signInForm {
+  position: relative;
+  float: right;
+  margin-right: 5%;
+  margin-top: 15px;
+  background-color: white;
+  padding: 20px 60px;
+  border: 2px solid black;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+#signInForm input {
+  width: 175px;
+}
+
+#profileBox {
+  position: relative;
+  float: right;
+  margin-right: 5%;
+  margin-top: 10px;
+  background-color: white;
+  padding: 10px 20px;
+  border: 5px solid dimgrey;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.login-button {
+  font-family: Arial;
+  margin-top: 5%;
+}
+
+.signup-button {
+  font-family: Arial;
+  margin-top: 2%;
+}
+
+#signUpContainer {
+  height: 100%;
+  width: 100%;
+}
+
+#nav {
+  position: relative;
+  z-index: 1;
+  float: right;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-right: 15px;
+  margin-top: 15px;
+  background-color: lightgrey;
+}
+
+
+#inner-div {
+  width: 400px;
+  height: 300px;
+  margin: auto;
+  padding: 25px 50px;
+  background-color: lightgrey;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+#signed-in {
+  position: relative;
+  background-color: dimgrey;
+
+}
+
+#deckButton {
+  color: black;
+  font-family: Arial;
+  font-size: 1.5em;
+  width: 50%;
+  border-radius: 0;
+  border-bottom: 2px solid black;
+  border-right: 1px solid black;
+}
+
+.searchBar {
+  width: 70%;
+  margin-right: 5px;
+  font-size: 1.4em;
+}
+
+#searchButton {
+  position: relative;
+  float: right;
+  bottom: 3px;
+  color: black;
+  text-shadow: 0 0;
+  font-family: Arial;
+  font-size: 1.2em;
+  border-radius: 0;
+  border: 2px solid black;
+}
+
+#profileButton {
+  width: 33.33%;
+  color: black;
+  text-shadow: 0 0;
+  font-family: Arial;
+  font-size: 1.5em;
+  border-radius: 0;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+#logoutButton {
+  color: black;
+  text-shadow: 0 0;
+  font-family: Arial;
+  font-size: 1.5em;
+  width: 50%;
+  border-radius: 0;
+  border-bottom: 2px solid black;
+  border-left: 1px solid black;
+}
+
+#loginButton {
+  color: black;
+  background-color: goldenrod;
+  font-family: Arial;
+  font-size: 1.2em;
+  float: left;
+  margin-top: 7%;
+  font-weight: bolder;
+}
+
+#signUpButton {
+  color: black;
+  background-color: dodgerblue;
+  font-family: Arial;
+  font-size: 1.2em;
+  float: right;
+  margin-top: 7%;
+  font-weight: bolder;
+}
+
+#signUpBox {
+  position: relative;
+  top: 200px;
+  width: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: dimgrey;
+}
+
+#signUpBox input {
+  margin-bottom: 10px;
+}
+
+#signUpBox button {
+  margin-top: 10px;
+}
+
+#signUpHeader {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 6em;
+}
+
+#deckSelectorDiv {
+  width: 92%;
+  height: 50px;
+  margin: 50px auto 0 auto;
+  border: 2px solid black;
+  background-color: rgba(0,0,0,0.3);
+}
+
+#cardsDiv {
+  width: 92%;
+  height: 550px;
+  margin: 0 auto 0 auto;
+  border: 2px solid black;
+  background-color: rgba(0,0,0,0.3);
+}
+
+#cardDiv {
+  float: left;
+  border: 2px solid black;
+  background-color: rgba(0,0,0,0.3);
+  height: 500px;
+  width: 307px;
+  text-align: center;
+}
+
+#cardDiv label {
+  color: black;
+  font-weight: bolder;
+}
+
+#whichDeck {
+  float: right;
+  margin: 14px 50px 0 0;
+  width: 75px;
+}
+
+#searchResultsDiv {
+  position: absolute;
+  top: 175px;
+  left: 25px;
+  height: 100%;
+  width: 100%;
+  /*margin: 0 auto;*/
+  background-color: #D9D9D9;
+}
+
+#searchDiv {
+  background-color: lightgrey;
+  padding: 14px 20px;
+}
+
+#searchForm {
+  margin: 5px;
+}
+
+#cardDetailsDiv {
+  position: absolute;
+  top: 125px;
+  height: 675px;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #D9D9D9;
+}
+
+#cardDetailsDiv h1 {
+  margin-left: 25px;
+}
+
+#cardDetailsDiv h3 {
+  margin-top: 30px;
+}
+.italicize {
+  font-style: italic;
+}
+
+.cardPic {
+  float: left;
+}
+
+.searchRes {
+  float: left;
+  clear: left;
+  margin-left: 25px;
+  background-color: rgba(0,0,0,0.3);
+  margin-bottom: 10px;
+  width: 95%;
+}
+
+.searchRes > img {
+  height: 150px;
+  width: 100px;
+}
+
+.searchRes > button {
+  background-color: Transparent;
+  color: white;
+  outline: none;
+  border: none;
+  font-size: 1.5em;
+  font-family: Arial, cursive;
+}
+
+.resultsNum {
+  margin-left: 25px;
+}
+
+#cardImgDiv {
+  float: left;
+  border: 2px solid black;
+  background-color: rgba(0,0,0,0.3);
+  width: 618px;
+  height: 462px;
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+#innerDiv {
+  width: 50%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#cardInfoDiv {
+  display: flex;
+  background-color: rgba(0,0,0,0.3);
+  /*justify-content: center;*/
+  flex-wrap: wrap;
+  font-size: 1.2em;
+  margin-top: 25px;
+  margin-left: 25px;
+  border: 2px solid black;
+  padding: 15px;
+}
+
+#row1 {
+  margin-right: 50px;
+}
+
+#addToDeck {
+  float: left;
+  margin-top: 25px;
+  margin-right: 15px;
+  width: 250px;
+  height: 150px;
+  padding: 15px;
+  background-color: rgba(0,0,0,0.3);
+  border: 2px solid black;
+}
+
+#addToDeck button {
+  display: block;
+  padding: 5px 25px;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+  border-radius: 0;
+  border: 2px solid black;
+  width: 212px;
+}
+
+#desc {
+  margin-left: 25px;
+}
+
+#actualDesc {
+  margin-left: 25px;
+  font-size: 1.75em;
+}
+
+#classPicker {
+  width: 100%;
+  font-size: 1.25em;
+  margin-top: 5px;
+}
+
+#newDeck {
+  width: 100%;
+  margin: 10px 0;
+}
+
+#newDeckForm {
+  display: inline;
+}
+
+#deckDiv {
+  position: absolute;
+  top: 150px;
+  width: 100%;
+  height: 75%;
+  background-color: #D9D9D9;
+}
+
+#deckDiv h1 {
+  margin-left: 25px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#innerDeckDiv {
+  height: 100%;
+  width: 100%;
+}
+
+#innerDeckDivLeft {
+  float: left;
+  height: 90%;
+  width: 15%;
+  margin-left: 5%;
+  margin-top: 25px;
+  background-color: rgba(0,0,0,0.3);
+  border: 2px solid black;
+}
+
+#innerDeckDivRight {
+  float: left;
+  height: 90%;
+  width: 75%;
+  margin-right: 5%;
+  margin-top: 25px;
+  background-color: rgba(0,0,0,0.3);
+  border: 2px solid black;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+
+#deckDropdown {
+  display: inline-block;
+  bottom: 0;
+  height: 40px;
+  border-radius: 0;
+  font-size: 1.5em;
+  border: 2px solid black;
+  width: 212px;
+}
+
+#deckDeckDropdown {
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 0;
+  font-size: 1.5em;
+}
+
+#DeckDisplayCards {
+  float: right;
+  border-left: 2px solid black;
+  width: 75%;
+  height: 100%;
+}
+
+.smallCardImg {
+  height: 156px;
+  width: 104px;
+}
+
+#createDeckButton {
+  width: 100%;
+  font-size: 1.2em;
+}
+
+#deckName {
+  width: 100%;
+  font-size: 1.25em;
+}
+
+#submitDeckBtn {
+  width: 50%;
+  margin-top: 5px;
+}
+
+#cancelDeckBtn {
+  width: 50%;
+  margin-top: 5px;
+}
+
+.resultsImg {
+  width: 307px;
+  height: 465px;
+}
+
+#flavor {
+  margin-top: 15px;
+}
+
+.redText {
+  color: red;
+}
+
+.greenText {
+  color: green;
+}
