@@ -18,7 +18,7 @@ app.use(cors());
 
 
 
-app.post('/signup', (req, resp, next) => {
+app.post('/api/signup', (req, resp, next) => {
   let data = req.body;
   bcrypt.hash(data.password, 10)
     .then((encryptedPassword) =>
@@ -39,7 +39,7 @@ app.post('/signup', (req, resp, next) => {
 });
 
 
-app.post('/login', (req, resp, next) => {
+app.post('/api/login', (req, resp, next) => {
   let username = req.body.username;
   let password = req.body.password;
   console.log("OK");
@@ -75,7 +75,7 @@ app.post('/login', (req, resp, next) => {
     });
 });
 
-app.get('/search', (req, resp, next) => {
+app.get('/api/search', (req, resp, next) => {
   let term = req.headers.term;
   let url = ('https://omgvamp-hearthstone-v1.p.mashape.com/cards/search/' + term);
   unirest.get(url)
@@ -90,7 +90,7 @@ app.get('/search', (req, resp, next) => {
     });
 });
 
-app.get('/cardDetails', (req, resp, next) => {
+app.get('/api/cardDetails', (req, resp, next) => {
   let cardId = req.headers.id;
   let url = ('https://omgvamp-hearthstone-v1.p.mashape.com/cards/' + cardId);
   unirest.get(url)
@@ -105,7 +105,7 @@ app.get('/cardDetails', (req, resp, next) => {
     });
 });
 
-app.post('/createDeck', (req, resp, next) => {
+app.post('/api/createDeck', (req, resp, next) => {
   let deck_name = req.body.deckName;
   let user_id = req.body.userId;
   let playerClass = req.body.playerClass;
@@ -126,7 +126,7 @@ app.post('/createDeck', (req, resp, next) => {
   .catch(next);
 });
 
-app.get('/fetchDecks', (req, resp, next) => {
+app.get('/api/fetchDecks', (req, resp, next) => {
   let user_id = req.headers.userid;
   console.log("user_id line 132: ", user_id);
   db.any(`
@@ -145,7 +145,7 @@ app.get('/fetchDecks', (req, resp, next) => {
   .catch(next);
 })
 
-app.get('/fetchCards', (req, resp, next) => {
+app.get('/api/fetchCards', (req, resp, next) => {
   let deck_id = req.headers.deckid;
   console.log("deck_id", deck_id);
   db.any(`
@@ -170,7 +170,7 @@ app.get('/fetchCards', (req, resp, next) => {
   .catch(next);
 })
 
-app.get('/matchDeck', (req, resp, next) => {
+app.get('/api/matchDeck', (req, resp, next) => {
   let deck_name = req.headers.deck_name;
   let user_id = req.headers.user_id;
   db.one(`
@@ -192,7 +192,7 @@ app.get('/matchDeck', (req, resp, next) => {
   .catch(next);
 })
 
-app.post('/addToDeck', (req, resp, next) => {
+app.post('/api/addToDeck', (req, resp, next) => {
   console.log("req.body", req.body);
   let details = req.body.details;
   let deck = req.body.deck;

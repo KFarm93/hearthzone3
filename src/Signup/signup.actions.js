@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-let BASEURL = 'http://localhost:4000';
+let BASEURL = 'http://localhost:4000/api';
 if (window.location.hostname !== 'localhost') {
   BASEURL = '';
 }

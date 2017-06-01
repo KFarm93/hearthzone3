@@ -1,7 +1,7 @@
 import { Router, Route, Link, IndexLink, IndexRoute, hashHistory } from 'react-router';
 import $ from 'jquery';
 
-let BASEURL = 'http://localhost:4000';
+let BASEURL = 'http://localhost:4000/api';
 if (window.location.hostname !== 'localhost') {
   BASEURL = '';
 }
