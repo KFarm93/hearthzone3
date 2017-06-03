@@ -69,7 +69,8 @@ export default function reducer(state = INITIAL_STATE, action) {
   if (action.type === 'foundInitDeck') {
     console.log("reached foundInitDeck in reducer");
     console.log(action.payload[0]);
-    if (!action.payload) {
+    if (action.payload[0] === undefined) {
+      console.log("payload was undefined")
       return Object.assign({}, state, {
         init: false,
         updateDeck: false
