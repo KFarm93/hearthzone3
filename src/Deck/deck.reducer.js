@@ -96,3 +96,10 @@ export default function reducer(state = INITIAL_STATE, action) {
   }
   return state;
 }
+
+if (action.type === 'stopUpdateDeck') {
+  console.log("stop update deck deck.reducer.js");
+  return Object.assign({}, state, {
+    updateDeck: false
+  })
+}

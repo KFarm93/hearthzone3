@@ -68,8 +68,15 @@ class Deck extends Component {
     if (this.props.deck.updateDeck === true) {
       existingDecks = null;
       this.props.fetchDecks(user.id);
-      this.props.findCards(this.props.deck.currentDeck);
+      if (this.props.deck.currentDeck !== null) {
+        this.props.findCards(this.props.deck.currentDeck);
+      }
+      else {
+        console.log("stop update deck deck.js")
+        this.props.stopUpdateDeck();
+      }
     }
+
     if (this.props.deck.cardsInDeck) {
       console.log(this.props.deck.cardsInDeck);
     }

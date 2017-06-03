@@ -177,3 +177,10 @@ export function cancelDeck() {
     type: "cancel"
   }
 }
+
+export function stopUpdateDeck() {
+  console.log("stop update deck deck.actions.js")
+  return {
+    type: 'stopUpdateDeck'
+  }
+}
