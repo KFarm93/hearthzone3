@@ -141,10 +141,17 @@ export function initialDeck(user_id) {
       contentType: "application/json"
     })
     .then(data => {
-      dispatch({
-        type: 'foundInitDeck',
-        payload: data
-      })
+      if (data !== null) {
+        dispatch({
+          type: 'foundInitDeck',
+          payload: data
+        })
+      }
+      else {
+        dispatch({
+          type: 'foundInitDeck'
+        })
+      }
     })
     .catch(err => {
       let error = (err && err.responseJSON && err.responseJSON.status_message)

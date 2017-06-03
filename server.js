@@ -42,7 +42,6 @@ app.post('/api/signup', (req, resp, next) => {
 app.post('/api/login', (req, resp, next) => {
   let username = req.body.username;
   let password = req.body.password;
-  console.log("OK");
   db.one(
     'select * from users where username = $1',
     username)
@@ -128,7 +127,6 @@ app.post('/api/createDeck', (req, resp, next) => {
 
 app.get('/api/fetchDecks', (req, resp, next) => {
   let user_id = req.headers.userid;
-  console.log("user_id line 132: ", user_id);
   db.any(`
     select
     id, name, class

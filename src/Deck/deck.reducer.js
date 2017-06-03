@@ -69,14 +69,22 @@ export default function reducer(state = INITIAL_STATE, action) {
   if (action.type === 'foundInitDeck') {
     console.log("reached foundInitDeck in reducer");
     console.log(action.payload[0]);
-    return Object.assign({}, state, {
-      currentDeck: action.payload[0].id,
-      currentDeckName: action.payload[0].name,
-      currentDeckClass: action.payload[0].class,
-      usersDecks: action.payload,
-      updateDeck: false,
-      init: false
-    })
+    if (!action.payload) {
+      return Object.assign({}, state, {
+        init: false,
+        updateDeck: false
+      })
+    }
+    else {
+      return Object.assign({}, state, {
+        currentDeck: action.payload[0].id,
+        currentDeckName: action.payload[0].name,
+        currentDeckClass: action.payload[0].class,
+        usersDecks: action.payload,
+        updateDeck: false,
+        init: false
+      })
+    }
   }
   return state;
 }
