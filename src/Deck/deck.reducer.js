@@ -28,7 +28,10 @@ export default function reducer(state = INITIAL_STATE, action) {
   }
   if (action.type === 'foundDecks') {
     return Object.assign({}, state, {
-      usersDecks: action.payload
+      usersDecks: action.payload,
+      currentDeck: action.payload[0].id,
+      currentDeckName: action.payload[0].name,
+      currentDeckClass: action.payload[0].class
     })
   }
   if (action.type === 'foundCards') {
