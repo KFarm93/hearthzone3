@@ -32,10 +32,17 @@ export default function reducer(state = INITIAL_STATE, action) {
     })
   }
   if (action.type === 'foundCards') {
-    return Object.assign({}, state, {
-      cardsInDeck: action.payload,
-      updateDeck: false
-    })
+    if (!action.payload) {
+      return Object.assign({}, state, {
+        updateDeck: false
+      })
+    }
+    else {
+      return Object.assign({}, state, {
+        cardsInDeck: action.payload,
+        updateDeck: false
+      })
+    }
   }
   if (action.type === 'foundDeck') {
     return Object.assign({}, state, {

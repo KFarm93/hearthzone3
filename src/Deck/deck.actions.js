@@ -83,10 +83,18 @@ export function findCards(deck_id) {
       contentType: "application/json"
     })
     .then(data => {
-      dispatch({
-        type: 'foundCards',
-        payload: data
-      })
+      if (data !== null) {
+        console.log("data was not null")
+        dispatch({
+          type: 'foundCards',
+          payload: data
+        })
+      }
+      else {
+        dispatch({
+          type: 'foundCards'
+        })
+      }
     })
     .catch(err => {
       let error = (err && err.responseJSON && err.responseJSON.status_message)
