@@ -60,7 +60,8 @@ app.post('/api/login', (req, resp, next) => {
           )
         ];
       } else {
-        throw new Error('Login failed.');
+        console.log('about to throw error');
+        throw new Error('Incorrect username or password');
       }
     })
     .catch(next)

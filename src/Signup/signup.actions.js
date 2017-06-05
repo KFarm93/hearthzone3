@@ -41,4 +41,9 @@ export function submitSignup(form) {
       });
     }
   }
+  else {
+    return {
+      type: 'passwordsDontMatch'
+    }
+  }
 }
