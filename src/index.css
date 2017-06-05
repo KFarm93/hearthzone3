@@ -202,7 +202,6 @@ body {
   width: 400px;
   margin: 0 auto;
   padding: 10px;
-  background-color: dimgrey;
 }
 
 #signUpBox input {
@@ -211,11 +210,14 @@ body {
 
 #signUpBox button {
   margin-top: 10px;
+  text-align: center;
+  border: 2px solid black;
+  color: black;
 }
 
 #signUpHeader {
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   font-size: 6em;
 }
 
