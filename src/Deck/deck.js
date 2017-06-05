@@ -77,9 +77,6 @@ class Deck extends Component {
       }
     }
 
-    if (this.props.deck.cardsInDeck) {
-      console.log(this.props.deck.cardsInDeck);
-    }
     return (
       <div id="deckDiv">
         <h1>{header}</h1>
