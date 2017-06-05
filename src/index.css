@@ -180,6 +180,8 @@ body {
   float: left;
   margin-top: 7%;
   font-weight: bolder;
+  border: 2px solid black;
+  border-radius: 0;
 }
 
 #signUpButton {
@@ -190,6 +192,8 @@ body {
   float: right;
   margin-top: 7%;
   font-weight: bolder;
+  border: 2px solid black;
+  border-radius: 0;
 }
 
 #signUpBox {
