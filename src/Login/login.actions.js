@@ -21,10 +21,22 @@ export function submitLogin(event) {
       contentType: "application/json"
     })
     .then(data => {
-      dispatch({
-        type: 'login',
-        payload: data
-      })
+      if (data.error === 'Incorrect password') {
+        dispatch({
+          type: 'incorrect'
+        })
+      }
+      else if (data.error === 'User not found') {
+        dispatch({
+          type: 'userNotFound'
+        })
+      }
+      else {
+        dispatch({
+          type: 'login',
+          payload: data
+        })
+      }
     })
     .catch(err => {
       let error = (err && err.responseJSON && err.responseJSON.status_message)

@@ -7,7 +7,6 @@ const INITIAL_STATE = {
 
 export default function reducer(state = INITIAL_STATE, action) {
   if (action.type === 'search') {
-    console.log(action)
     hashHistory.push("/signed-in/searchResults/" + action.term);
     return Object.assign({}, state, {
       searchTerm: action.payload.term

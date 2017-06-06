@@ -84,7 +84,6 @@ export function findCards(deck_id) {
     })
     .then(data => {
       if (data !== null) {
-        console.log("data was not null")
         dispatch({
           type: 'foundCards',
           payload: data
@@ -137,8 +136,6 @@ export function changeDeck(event, user_id) {
 }
 
 export function initialDeck(user_id) {
-  console.log("reached initialDeck in actions");
-  console.log("user id is: ", user_id);
   return function(dispatch) {
     $.ajax({
       type: "GET",
@@ -179,7 +176,6 @@ export function cancelDeck() {
 }
 
 export function stopUpdateDeck() {
-  console.log("stop update deck deck.actions.js")
   return {
     type: 'stopUpdateDeck'
   }

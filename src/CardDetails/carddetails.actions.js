@@ -36,18 +36,11 @@ export function fetchDeets(cardId) {
 export function addToDeck(event, details, deck) {
   event.preventDefault();
   if (details.playerClass !== deck.currentDeckClass && details.playerClass !== 'Neutral' && details.playerClass !== null) {
-    console.log("not a match");
-    console.log(details.playerClass);
-    console.log(deck.currentDeckClass);
     return {
       type: 'wrongClass'
     }
   }
-  else {
-    console.log("match");
-  }
   if (deck.cardsInDeck.length >= 30) {
-    console.log("too many cards");
     return {
       type: 'tooMany'
     }

@@ -10,7 +10,6 @@ import * as DeckActions from '../Deck/deck.actions';
 class CardDetails extends Component {
   componentDidMount() {
     this.props.fetchDeets(this.props.params.cardId);
-    console.log(this.props.login.user.id);
     this.props.fetchDecks(this.props.login.user.id);
   }
   render() {
@@ -62,7 +61,6 @@ class CardDetails extends Component {
     }
     else {
       if (this.props.details.updateDeck === true) {
-        console.log("update deck");
         this.props.findCards(this.props.deck.currentDeck);
       }
       if (this.props.details.details.type === undefined) {

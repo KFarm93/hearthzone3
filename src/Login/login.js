@@ -9,15 +9,18 @@ class Login extends Component {
   render() {
     if (this.props.loggedIn === false) {
       return (
-        <div id="signInForm">
-          <form onSubmit={event => this.props.submitLogin(event)}>
-            <label className="blackText bigger">Username</label><br/>
-            <input type="text" name="username"/><br/>
-            <label className="blackText bigger">Password</label><br/>
-            <input type="password" name="password"/><br/>
-            <button type="submit" name="button_login" className="btn" id="loginButton">Login</button>
-            <Link to="/signup" className="btn btn-info" id="signUpButton">Sign Up</Link>
-          </form>
+        <div>
+          <div id="signInForm">
+            <form onSubmit={event => this.props.submitLogin(event)}>
+              <label className="blackText bigger">Username</label><br/>
+              <input type="text" name="username"/><br/>
+              <label className="blackText bigger">Password</label><br/>
+              <input type="password" name="password"/><br/>
+              <button type="submit" name="button_login" className="btn" id="loginButton">Login</button>
+              <Link to="/signup" className="btn btn-info" id="signUpButton">Sign Up</Link>
+            </form>
+          </div>
+          <h1 id="loginErrorMsg">{this.props.message}</h1>
         </div>
       );
     }

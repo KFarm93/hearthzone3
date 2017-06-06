@@ -9,7 +9,6 @@ if (window.location.hostname !== 'localhost') {
 export function search(event) {
   event.preventDefault();
   let searchTerm = event.target.term.value;
-  console.log(searchTerm);
   return function(dispatch) {
     $.ajax({
       type: "GET",
@@ -37,7 +36,6 @@ export function search(event) {
 }
 
 export function logout() {
-  console.log("logout");
   return {
     type: 'logout'
   }

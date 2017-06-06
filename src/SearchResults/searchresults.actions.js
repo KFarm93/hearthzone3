@@ -34,7 +34,6 @@ export function search(term) {
 }
 
 export function logout() {
-  console.log("logout");
   return {
     type: 'logout'
   }

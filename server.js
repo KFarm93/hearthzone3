@@ -42,12 +42,18 @@ app.post('/api/signup', (req, resp, next) => {
 app.post('/api/login', (req, resp, next) => {
   let username = req.body.username;
   let password = req.body.password;
-  db.one(
+  db.oneOrNone(
     'select * from users where username = $1',
     username)
-    .then(user =>
-      [user,
-        bcrypt.compare(password, user.password)])
+    .then(user => {
+      if (user === null) {
+        resp.json({
+          error: 'User not found'
+        })
+      }
+      return [user,
+        bcrypt.compare(password, user.password)]
+    })
     .spread((user, matches) => {
       if (matches) {
         let token = uuid.v4();
@@ -60,18 +66,26 @@ app.post('/api/login', (req, resp, next) => {
           )
         ];
       } else {
-        console.log('about to throw error');
-        throw new Error('Incorrect username or password');
+        return [
+          // Incorrect password
+        ]
       }
     })
     .catch(next)
     .spread((user, loginSession) => {
-      resp.json({
-        username: user.username,
-        email: user.email,
-        auth_token: loginSession.token,
-        id: user.id
-      });
+      if (user === undefined) {
+        resp.json({
+          error: 'Incorrect password'
+        })
+      }
+      if (user !== undefined) {
+        resp.json({
+          username: user.username,
+          email: user.email,
+          auth_token: loginSession.token,
+          id: user.id
+        });
+      }
     });
 });
 
@@ -146,7 +160,6 @@ app.get('/api/fetchDecks', (req, resp, next) => {
 
 app.get('/api/fetchCards', (req, resp, next) => {
   let deck_id = req.headers.deckid;
-  console.log("deck_id", deck_id);
   db.any(`
     select
     cards.*, deck_has_cards.*
@@ -192,10 +205,8 @@ app.get('/api/matchDeck', (req, resp, next) => {
 })
 
 app.post('/api/addToDeck', (req, resp, next) => {
-  console.log("req.body", req.body);
   let details = req.body.details;
   let deck = req.body.deck;
-  console.log("server-side deck #", deck);
   let name = details.name;
   let cardSet = details.cardSet;
   let type = details.type;
@@ -214,8 +225,6 @@ app.post('/api/addToDeck', (req, resp, next) => {
   let locale = details.locale;
   let faction = details.faction;
   let cardId = details.cardId;
-  console.log(cardId);
-  console.log(deck);
   db.one(`
     insert into
     deck_has_cards

@@ -5,7 +5,6 @@ const INITIAL_STATE = {
 
 export default function reducer(state = INITIAL_STATE, action) {
   if (action.type === 'search') {
-    console.log(action.payload.results);
     for (let i=0;i<action.payload.results.length;i++) {
       if (action.payload.results[i].img == undefined) {
         action.payload.results[i].img = "http://media-hearth.cursecdn.com/attachments/39/664/cardback_0.png";

@@ -27,7 +27,6 @@ export default function reducer(state = INITIAL_STATE, action) {
     })
   }
   if (action.type === 'foundDecks') {
-    console.log("foundDecks reducer");
     return Object.assign({}, state, {
       usersDecks: action.payload
     })
@@ -75,10 +74,7 @@ export default function reducer(state = INITIAL_STATE, action) {
     })
   }
   if (action.type === 'foundInitDeck') {
-    console.log("reached foundInitDeck in reducer");
-    console.log(action.payload[0]);
     if (action.payload[0] === undefined) {
-      console.log("payload was undefined")
       return Object.assign({}, state, {
         init: false,
         updateDeck: false
@@ -96,7 +92,6 @@ export default function reducer(state = INITIAL_STATE, action) {
     }
   }
   if (action.type === 'stopUpdateDeck') {
-    console.log("stop update deck deck.reducer.js");
     return Object.assign({}, state, {
       updateDeck: false
     })

@@ -8,9 +8,7 @@ import * as actions from './deck.actions';
 class Deck extends Component {
   componentDidMount() {
     let user = this.props.login.user;
-    console.log(this.props.login.user);
     if (this.props.deck.init === true) {
-      console.log("still true")
       this.props.initialDeck(this.props.login.user.id);
     }
   }
@@ -56,7 +54,6 @@ class Deck extends Component {
       )
     }
     if (this.props.deck.cardsInDeck === null && this.props.deck.currentDeck !== null) {
-      console.log("better find some cards from: ", this.props.deck.currentDeck);
       this.props.findCards(this.props.deck.currentDeck);
     }
     if (this.props.deck.cardsInDeck !== null) {
@@ -72,7 +69,6 @@ class Deck extends Component {
         this.props.findCards(this.props.deck.currentDeck);
       }
       else {
-        console.log("stop update deck deck.js")
         this.props.stopUpdateDeck();
       }
     }

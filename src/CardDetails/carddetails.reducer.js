@@ -15,7 +15,6 @@ export default function reducer(state = INITIAL_STATE, action) {
     })
   }
   if (action.type === 'addToDeck') {
-    console.log("add to deck");
     return Object.assign({}, state, {
       message: 'Card added'
     })
