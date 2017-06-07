@@ -96,5 +96,13 @@ export default function reducer(state = INITIAL_STATE, action) {
       updateDeck: false
     })
   }
+  if (action.type === 'getFirstDeck') {
+    console.log(action.payload);
+    return Object.assign({}, state, {
+      currentDeck: action.payload[0].id,
+      currentDeckName: action.payload[0].name,
+      currentDeckClass: action.payload[0].class
+    })
+  }
   return state;
 }

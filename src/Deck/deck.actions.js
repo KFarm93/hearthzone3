@@ -180,3 +180,10 @@ export function stopUpdateDeck() {
     type: 'stopUpdateDeck'
   }
 }
+
+export function getFirstDeck(existingDecks) {
+  return {
+    type: 'getFirstDeck',
+    payload: existingDecks
+  }
+}

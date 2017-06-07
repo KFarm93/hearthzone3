@@ -87,6 +87,9 @@ class CardDetails extends Component {
       else {
         playerClass = this.props.details.details.playerClass;
       }
+      if (this.props.usersDecks !== null && this.props.deck.currentDeck === null) {
+        this.props.getFirstDeck(this.props.deck.usersDecks);
+      }
       return (
         <div>
           <div id="cardDetailsDiv">
