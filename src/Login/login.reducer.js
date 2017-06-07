@@ -13,7 +13,7 @@ const INITIAL_STATE = {
 
 export default function reducer(state = INITIAL_STATE, action) {
   if (action.type === 'login') {
-    hashHistory.push("/signed-in");
+    hashHistory.push("/signed-in/deck");
     return Object.assign({}, state, {
       message: null,
       loggedIn: true,
