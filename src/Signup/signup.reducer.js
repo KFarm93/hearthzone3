@@ -13,11 +13,13 @@ export default function reducer(state = INITIAL_STATE, action) {
   }
   if (action.type === 'passwordsDontMatch') {
     return Object.assign({}, state, {
-      message: 'Your passwords did not match.'
+      message: 'ERROR: Values in "Password" and "Confirm Password" fields do not match'
     })
   }
-  if (action.type === 'passwordIncorrect') {
-    message: 'Incorrect username or password.'
+  if (action.type === 'duplicateUsername') {
+    return Object.assign({}, state, {
+      message: 'ERROR: User already exists'
+    })
   }
   return state;
 }

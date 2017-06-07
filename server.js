@@ -270,11 +270,18 @@ app.post('/api/addToDeck', (req, resp, next) => {
 
 
 app.use((err, req, resp, next) => {
-  resp.status(500);
-  resp.json({
-    message: err.message,
-    stack: err.stack.split('\n')
-  });
+  if (err.message === "duplicate key value violates unique constraint \"Users_username_key\"") {
+    resp.json({
+      message: 'duplicate username attempted'
+    })
+  }
+  else {
+    resp.status(500);
+    resp.json({
+      message: err.message,
+      stack: err.stack.split('\n')
+    });
+  }
 });
 
 app.listen(4000, () => console.log('Listening on 4000.'));

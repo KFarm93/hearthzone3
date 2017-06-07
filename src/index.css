@@ -516,8 +516,15 @@ body {
 }
 
 #loginErrorMsg {
-  position: fixed;
+  position: absolute;
   color: red;
   top: 75px;
+  left: 10px;
+}
+
+#signupErrorMsg {
+  position: absolute;
+  top: 75px;
+  color: red;
   left: 10px;
 }

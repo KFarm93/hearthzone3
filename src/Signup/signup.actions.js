@@ -26,10 +26,17 @@ export function submitSignup(form) {
         contentType: "application/json"
       })
       .then(data => {
-        dispatch({
-          type: 'submitSignup',
-          payload: data
-        })
+        if (data.message === 'duplicate username attempted') {
+          dispatch({
+            type: 'duplicateUsername'
+          })
+        }
+        else {
+          dispatch({
+            type: 'submitSignup',
+            payload: data
+          })
+        }
       })
       .catch(err => {
         let error = (err && err.responseJSON && err.responseJSON.status_message)

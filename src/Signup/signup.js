@@ -7,6 +7,7 @@ class Signup extends Component {
   render() {
     return (
       <div id="signUpContainer">
+      <h1 id="signupErrorMsg">{this.props.message}</h1>
         <div id="signUpBox">
           <form onSubmit={(event) => this.props.submitSignup(event)}>
             <h1 id="signUpHeader">Sign Up</h1>
