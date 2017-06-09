@@ -8,14 +8,14 @@ import * as actions from './deck.actions';
 class Deck extends Component {
   componentDidMount() {
     let user = this.props.login.user;
-    if (this.props.deck.init === true) {
-      this.props.initialDeck(this.props.login.user.id);
-    }
   }
   componentWillReceiveProps(newProps) {
     if (this.props.login.user !== newProps.login.user) {
       let user = newProps.login.user;
       this.props.fetchDecks(user.id);
+    }
+    if (this.props.deck.init === true && this.props.login.user.id !== undefined) {
+      this.props.initialDeck(this.props.login.user.id);
     }
   }
   render() {

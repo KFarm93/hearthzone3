@@ -142,20 +142,28 @@ app.post('/api/createDeck', (req, resp, next) => {
 
 app.get('/api/fetchDecks', (req, resp, next) => {
   let user_id = req.headers.userid;
-  db.any(`
-    select
-    id, name, class
-    from
-    decks
-    where
-    user_id = $1
-    `,
-    [
-      user_id
-    ]
-  )
-  .then(data => resp.json(data))
-  .catch(next);
+  if (user_id === undefined) {
+    // do nothing
+  }
+  else {
+    db.any(`
+      select
+      id, name, class
+      from
+      decks
+      where
+      user_id = $1
+      `,
+      [
+        user_id
+      ]
+    )
+    .then(data => {
+      console.log("data", data);
+      return resp.json(data)
+    })
+    .catch(next);
+  }
 })
 
 app.get('/api/fetchCards', (req, resp, next) => {
