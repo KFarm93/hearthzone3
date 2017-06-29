@@ -6,7 +6,9 @@ const INITIAL_STATE = {
   updateDeck: false,
   currentDeckName: null,
   currentDeckClass: null,
-  init: true
+  init: true,
+  delete: false,
+  cardsToDelete: []
 };
 
 export default function reducer(state = INITIAL_STATE, action) {
@@ -57,9 +59,10 @@ export default function reducer(state = INITIAL_STATE, action) {
       showNewDeck: false
     })
   }
-  if (action.type === 'fetchDeets') {
+  if (action.type === 'fetchDetails') {
     return Object.assign({}, state, {
-      updateDeck: true
+      updateDeck: true,
+      delete: false
     })
   }
   if (action.type === 'logout') {
@@ -70,7 +73,9 @@ export default function reducer(state = INITIAL_STATE, action) {
       currentDeck: null,
       updateDeck: false,
       currentDeckName: null,
-      init: true
+      init: true,
+      delete: false,
+      cardsToDelete: []
     })
   }
   if (action.type === 'foundInitDeck') {
@@ -102,6 +107,34 @@ export default function reducer(state = INITIAL_STATE, action) {
       currentDeck: action.payload[0].id,
       currentDeckName: action.payload[0].name,
       currentDeckClass: action.payload[0].class
+    })
+  }
+  if (action.type === 'deleteCards') {
+    if (action.payload === false) {
+      return Object.assign({}, state, {
+        delete: true
+      })
+    }
+    else {
+      return Object.assign({}, state, {
+        delete: false
+      })
+    }
+  }
+  if (action.type === 'prepForDelete') {
+    return Object.assign({}, state, {
+      cardsToDelete: action.toDelete.concat(action.target)
+    })
+  }
+  if (action.type === 'cancelDelete') {
+    return Object.assign({}, state, {
+      cardsToDelete: action.toDelete
+    })
+  }
+  if (action.type === 'cancelDeleteCards') {
+    return Object.assign({}, state, {
+      cardsToDelete: action.payload,
+      delete: false
     })
   }
   return state;

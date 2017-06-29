@@ -187,3 +187,69 @@ export function getFirstDeck(existingDecks) {
     payload: existingDecks
   }
 }
+
+export function deleteCards(bool) {
+  return {
+    type: 'deleteCards',
+    payload: bool
+  }
+}
+
+export function prepForDelete(target, toDelete) {
+  let arrayTarget = [target];
+  return {
+    type: 'prepForDelete',
+    target: arrayTarget,
+    toDelete: toDelete
+  }
+}
+
+export function cancelDelete(target, toDelete) {
+  let newArr = [];
+  for (let i=0;i<toDelete.length;i++) {
+    if (toDelete[i] === target) {
+    }
+    else {
+      newArr.push(toDelete[i]);
+    }
+  }
+  return {
+    type: 'cancelDelete',
+    toDelete: newArr
+  }
+}
+
+export function cancelDeleteCards() {
+  return {
+    type: 'cancelDeleteCards',
+    payload: []
+  }
+}
+
+export function confirmDelete(cardsToDelete, deck) {
+  let data = {
+    cardsToDelete: cardsToDelete,
+    deck: deck
+  }
+  return function(dispatch) {
+    $.ajax({
+      type: "POST",
+      url: `${BASEURL}/confirmDelete`,
+      data: JSON.stringify(data),
+      contentType: "application/json"
+    })
+    .then(data => {
+      dispatch({
+        type: 'fetchDetails'
+      })
+    })
+    .catch(err => {
+      let error = (err && err.responseJSON && err.responseJSON.status_message)
+      || 'Something went wrong in confirmDelete in deck.actions';
+      dispatch({
+        type: 'error',
+        error: error
+      });
+    });
+  };
+}

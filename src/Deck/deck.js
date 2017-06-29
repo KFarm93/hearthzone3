@@ -4,6 +4,7 @@ import * as ReactRedux from 'react-redux';
 import { Router, Route, Link, IndexLink, IndexRoute, hashHistory } from 'react-router';
 import * as DeckReducer from './deck.reducer';
 import * as actions from './deck.actions';
+import $ from 'jquery';
 
 class Deck extends Component {
   componentDidMount() {
@@ -24,6 +25,18 @@ class Deck extends Component {
     let newDeck;
     let existingDecks = null;
     let cardsInDeck = null;
+    let deleteCards;
+    const prepForDelete = target => {
+      let targetNum = parseInt(target.name);
+      if ($.inArray(targetNum, this.props.deck.cardsToDelete) !== -1) {
+        $(target).removeClass("prepForDelete");
+        this.props.cancelDelete(targetNum, this.props.deck.cardsToDelete);
+      } else {
+        this.props.prepForDelete(targetNum, this.props.deck.cardsToDelete);
+        $(target).addClass("prepForDelete");
+      }
+    }
+
     if (this.props.deck.showNewDeck === true) {
       newDeck = (
         <div id="newDeck">
@@ -56,10 +69,26 @@ class Deck extends Component {
     if (this.props.deck.cardsInDeck === null && this.props.deck.currentDeck !== null) {
       this.props.findCards(this.props.deck.currentDeck);
     }
-    if (this.props.deck.cardsInDeck !== null) {
+    if (this.props.deck.cardsInDeck !== null && this.props.deck.delete === false) {
       cardsInDeck = (
         this.props.deck.cardsInDeck.map(result =>
-          <Link key={result.id} to={"/signed-in/cardDetails/"+result.api_id}><img className="smallCardImg" src={result.img}/></Link>)
+          <Link to={"/signed-in/cardDetails/"+result.api_id}><img className="smallCardImg" name={result.id} src={result.img}/></Link>)
+      )
+      deleteCards = (
+        <button id="deleteCardsButton" className="btn btn-danger" onClick={() => this.props.deleteCards(this.props.deck.delete)}>Delete Cards</button>
+      )
+    }
+    else if (this.props.deck.cardsInDeck !== null && this.props.deck.delete === true) {
+      cardsInDeck = (
+        this.props.deck.cardsInDeck.map(result =>
+        <img className="smallCardImg" src={result.img} key={result.id} name={result.id} onClick={(event) => prepForDelete(event.target)}/>
+        )
+      )
+      deleteCards = (
+        <div>
+          <button id="cancelDeleteButton" className="btn btn-danger" onClick={() => this.props.cancelDeleteCards()}>Cancel Delete</button>
+          <button id="confirmDeleteButton" className="btn btn-info" onClick={() => this.props.confirmDelete(this.props.deck.cardsToDelete, this.props.deck.currentDeck)}>Confim Delete</button>
+        </div>
       )
     }
     if (this.props.deck.updateDeck === true) {
@@ -78,13 +107,14 @@ class Deck extends Component {
         <h1>{header}</h1>
         <div id="innerDeckDiv">
           <div id="innerDeckDivLeft">
-          <button id="createDeckButton" className="btn btn-success" onClick={() => this.props.showNewDeck()}>Create New Deck</button>
+            <button id="createDeckButton" className="btn btn-success" onClick={() => this.props.showNewDeck()}>Create New Deck</button>
             <form onSubmit={event => this.props.submitNewDeck(event)}>
               {newDeck}
               <select id="deckDeckDropdown" onChange={(event) => this.props.changeDeck(event, user.id)} value={this.props.deck.currentDeckName}>
               {existingDecks}
               </select>
             </form>
+            {deleteCards}
           </div>
           <div id="innerDeckDivRight">
             {cardsInDeck}

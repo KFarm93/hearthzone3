@@ -431,3 +431,94 @@ body {
   color: red;
   left: 10px;
 }
+
+#deleteCardsButton {
+  width: 100%;
+  font-size: 1.2em;
+  border-radius: 0;
+}
+
+.prepForDelete {
+  background-color: red;
+}
+
+#cancelDeleteButton {
+  width: 50%;
+  border-radius: 0;
+}
+
+#confirmDeleteButton {
+  width: 50%;
+  border-radius: 0;
+}
+
+@media screen and (max-width: 999px) {
+  #header {
+    font-size: 1.5em;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  #bannerDiv {
+    position: fixed;
+    display: block;
+  }
+
+  #signInForm {
+    float: none;
+    padding: 0;
+    margin-top: 40px;
+    padding: 15px 0;
+    width: 80%;
+  }
+
+  #signInForm input {
+    background-color: lightgrey;
+  }
+
+  #signInForm label {
+    margin-left: 5px;
+  }
+
+  #loginButton {
+    margin-left: 7.5px;
+  }
+
+  #signUpButton {
+    float: none;
+    margin-top: 7%;
+    margin-left: 10px;
+  }
+
+  #nav {
+    float: none;
+    width: 100%;
+    margin: 0;
+    margin-top: 43px;
+  }
+
+  #deckButton {
+    width: 31%;
+    font-size: 1em;
+  }
+
+  #logoutButton {
+    width: 31%;
+    font-size: 1em;
+  }
+
+  .searchBar {
+    width: 60%;
+  }
+
+  #searchDiv {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #searchButton {
+    font-size: 1em;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

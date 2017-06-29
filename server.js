@@ -159,7 +159,6 @@ app.get('/api/fetchDecks', (req, resp, next) => {
       ]
     )
     .then(data => {
-      console.log("data", data);
       return resp.json(data)
     })
     .catch(next);
@@ -275,6 +274,27 @@ app.post('/api/addToDeck', (req, resp, next) => {
   )
     .catch(next);
 })
+
+app.post('/api/confirmDelete', (req, resp, next) => {
+  for (let i=0;i<=req.body.cardsToDelete.length;i++) {
+    db.any(`
+        delete from
+        deck_has_cards
+        where
+        deck_has_cards.id = $1
+        and
+        deck_has_cards.deck_id = $2
+        returning
+        deck_has_cards.deck_id;
+      `,
+      [
+        req.body.cardsToDelete[i],
+        req.body.deck
+      ])
+      .then(data => resp.json(data))
+      .catch(next);
+  }
+});
 
 
 app.use((err, req, resp, next) => {
