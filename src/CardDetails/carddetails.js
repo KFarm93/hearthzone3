@@ -91,7 +91,7 @@ class CardDetails extends Component {
         this.props.getFirstDeck(this.props.deck.usersDecks);
       }
       return (
-        <div>
+        <div id="detailsWrapper">
           <div id="cardDetailsDiv">
             <h1>{this.props.details.details.name}</h1>
             <div id="cardImgDiv">
