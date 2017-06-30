@@ -338,7 +338,7 @@ body {
 
 #innerDeckDivLeft {
   float: left;
-  height: 90%;
+  /*height: 90%;*/
   width: 15%;
   margin-left: 5%;
   margin-top: 25px;
@@ -347,11 +347,13 @@ body {
 }
 
 #innerDeckDivRight {
+  display: flex;
+  flex-flow: row wrap;
   float: left;
-  height: 90%;
   width: 75%;
   margin-right: 5%;
   margin-top: 25px;
+  margin-bottom: 25px;
   background-color: rgba(0,0,0,0.3);
   border: 2px solid black;
   padding-left: 15px;
