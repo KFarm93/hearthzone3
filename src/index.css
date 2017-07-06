@@ -155,7 +155,7 @@ body {
 #signUpBox {
   position: relative;
   top: 200px;
-  width: 400px;
+  width: 100%;
   margin: 0 auto;
   padding: 10px;
   border: 2px solid black;
@@ -454,7 +454,8 @@ body {
   border-radius: 0;
 }
 
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 767px) {
+  /*smartphone rules*/
   #header {
     display: block;
     font-size: 2.5em;
@@ -537,8 +538,7 @@ body {
     font-size: 1em;
     padding-left: 10px;
     padding-right: 10px;
-    float: none;
-    margin-left: 15px;
+    float: right;
   }
 
   #deckDiv h1 {
@@ -568,7 +568,7 @@ body {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     padding: 0;
     margin-top: 20px;
   }
@@ -616,5 +616,56 @@ body {
   #addToDeck button {
     width: 100%;
     height: 50px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  /*tablet rules*/
+  #innerDeckDivLeft {
+    position: static;
+    margin-left: 0;
+    display: block;
+    width: 100%;
+  }
+
+  #innerDeckDivRight {
+    position: static;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: 0;
+    margin-top: 20px;
+  }
+
+  #cardImgDiv {
+    margin: 0;
+    margin-left: 25px;
+    display: flex;
+    justify-content: space-around;
+    width: 700px;
+    height: 300px;
+  }
+
+  .cardPic {
+    height: 300px;
+    width: 32%;
+  }
+
+  #cardInfoDiv {
+    width: 700px;
+  }
+
+  #flavor {
+    margin-left: 25px;
+  }
+
+  #addToDeck {
+    margin-left: 25px;
+    margin-top: 20px;
+  }
+
+  #signInForm input {
+    border: 1px solid black;
   }
 }
