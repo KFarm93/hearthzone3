@@ -619,7 +619,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) and (min-width: 768px) {
   /*tablet rules*/
   #innerDeckDivLeft {
     position: static;
