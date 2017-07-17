@@ -1,7 +1,7 @@
 const INITIAL_STATE = {
   showNewDeck: false,
   usersDecks: null,
-  cardsInDeck: null,
+  cardsInDeck: [],
   currentDeck: null,
   updateDeck: false,
   currentDeckName: null,
@@ -69,7 +69,7 @@ export default function reducer(state = INITIAL_STATE, action) {
     return Object.assign({}, state, {
       showNewDeck: false,
       usersDecks: null,
-      cardsInDeck: null,
+      cardsInDeck: [],
       currentDeck: null,
       updateDeck: false,
       currentDeckName: null,
