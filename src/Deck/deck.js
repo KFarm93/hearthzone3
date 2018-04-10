@@ -67,7 +67,6 @@ class Deck extends Component {
       )
     }
     if (this.props.deck.cardsInDeck.length === 0 && this.props.deck.currentDeck !== null) {
-      console.log("got heeeeeereeeeee");
       this.props.findCards(this.props.deck.currentDeck);
     }
     if (this.props.deck.cardsInDeck !== null && this.props.deck.delete === false) {
